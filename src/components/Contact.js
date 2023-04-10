@@ -1,9 +1,45 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const Contact = () => {
-  return <h4>contact section</h4>
-}
+  return (
+    <Wrapper>
+      <div className='section-center'>
+        <h3>Join our newsletter and get 20% off</h3>
+        <div className='content'>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae
+            delectus necessitatibus eveniet reprehenderit odio. Perspiciatis
+            enim dignissimos mollitia saepe perferendis.
+          </p>
+          <form
+            className='contact-form'
+            action='https://formspree.io/f/mgebkvjg '
+            method='POST'
+          >
+            <input
+              type='email'
+              name='email'
+              className='form-input'
+              placeholder='Enter your email'
+            />
+            <textarea
+              name='message'
+              id='message'
+              cols='50'
+              rows='1'
+              className='form-input'
+              placeholder='Enter your meassage...'
+            ></textarea>
+            <button type='submit' className='submit-btn'>
+              subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </Wrapper>
+  );
+};
 const Wrapper = styled.section`
   padding: 5rem 0;
   h3 {
@@ -14,11 +50,15 @@ const Wrapper = styled.section`
     max-width: 45em;
     color: var(--clr-grey-5);
   }
+  textarea {
+    resize: none;
+  }
   .contact-form {
     width: 90vw;
     max-width: 500px;
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .form-input,
@@ -28,14 +68,11 @@ const Wrapper = styled.section`
     border: 2px solid var(--clr-black);
   }
   .form-input {
-    border-right: none;
     color: var(--clr-grey-3);
-    border-top-left-radius: var(--radius);
-    border-bottom-left-radius: var(--radius);
+    border-radius: var(--radius);
   }
   .submit-btn {
-    border-top-right-radius: var(--radius);
-    border-bottom-right-radius: var(--radius);
+    border-radius: var(--radius);
   }
   .form-input::placeholder {
     color: var(--clr-black);
@@ -67,6 +104,6 @@ const Wrapper = styled.section`
   @media (min-width: 1280px) {
     padding: 15rem 0;
   }
-`
+`;
 
-export default Contact
+export default Contact;

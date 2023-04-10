@@ -1,12 +1,32 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import heroBcg from '../assets/hero-bcg.jpeg'
-import heroBcg2 from '../assets/hero-bcg-2.jpeg'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import heroBcg from '../assets/hero-bcg.jpeg';
+import heroBcg2 from '../assets/hero-bcg-2.jpeg';
 
 const Hero = () => {
-  return <h4>hero</h4>
-}
+  return (
+    <Wrapper className='section-center'>
+      <article className='content'>
+        <h1>
+          designe your <br /> comforn zone
+        </h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque qui
+          modi nam eveniet deserunt praesentium odit architecto alias provident
+          molestias!
+        </p>
+        <Link to='/products' className='btn hero-btn'>
+          Shop now
+        </Link>
+      </article>
+      <article className='img-container'>
+        <img src={heroBcg} alt='hero bck one' className='main-img' />
+        <img src={heroBcg2} alt='hero bck two' className='accent-img' />
+      </article>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.section`
   min-height: 60vh;
@@ -15,6 +35,9 @@ const Wrapper = styled.section`
   .img-container {
     display: none;
   }
+  h1 {
+    text-align: center;
+  }
 
   p {
     line-height: 2;
@@ -22,6 +45,12 @@ const Wrapper = styled.section`
     margin-bottom: 2rem;
     color: var(--clr-grey-5);
     font-size: 1rem;
+    text-indent: 1em;
+  }
+  .hero-btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
   }
   @media (min-width: 992px) {
     height: calc(100vh - 5rem);
@@ -68,6 +97,6 @@ const Wrapper = styled.section`
       border-radius: var(--radius);
     }
   }
-`
+`;
 
-export default Hero
+export default Hero;
