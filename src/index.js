@@ -10,11 +10,14 @@ import { UserProvider } from './context/user_context';
 import { Auth0Provider } from '@auth0/auth0-react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const apiKey = process.env.REACT_APP_AUTHO_KEY;
+const apiDomain = process.env.REACT_APP_AUTHO_KEY;
+console.log(apiKey);
 
 root.render(
   <Auth0Provider
-    domain='dev-jrpymfugjkfsyg2n.us.auth0.com'
-    clientId='geWyGLOnv0N2r0fuLRgXfUiq900xZPFV'
+    domain={apiDomain}
+    clientId={apiKey}
     redirectUri={window.location.origin}
     cacheLocation='localstorage'
   >
