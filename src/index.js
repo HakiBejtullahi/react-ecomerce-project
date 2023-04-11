@@ -16,8 +16,13 @@ console.log(apiKey);
 
 root.render(
   <Auth0Provider
+<<<<<<< HEAD
     domain={apiDomain}
     clientId={apiKey}
+=======
+    domain=''
+    clientId=''
+>>>>>>> c43f692febf5c682b82693bdd876011cb581439d
     redirectUri={window.location.origin}
     cacheLocation='localstorage'
   >
