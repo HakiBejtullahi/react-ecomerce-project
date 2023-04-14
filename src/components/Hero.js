@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import heroBcg from '../assets/hero-bcg.jpeg';
-import heroBcg2 from '../assets/hero-bcg-2.jpeg';
+import heroBcg from '../assets/hero-bcg.svg';
+import heroBcg2 from '../assets/hero-bcg-2.jpg';
 
 const Hero = () => {
   return (
@@ -80,8 +80,8 @@ const Wrapper = styled.section`
     }
     .accent-img {
       position: absolute;
-      bottom: 0;
-      left: 0;
+      top: 3.2rem;
+      left: 50%;
       width: 250px;
       transform: translateX(-50%);
       border-radius: var(--radius);

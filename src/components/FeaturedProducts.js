@@ -89,7 +89,7 @@ const Wrapper = styled.section`
       height: 225px;
     }
     .carousel {
-      height: 260px;
+      height: 270px;
       overflow: hidden;
       position: relative;
       padding: 0 2rem;
