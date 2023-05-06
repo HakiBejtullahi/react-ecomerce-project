@@ -25,7 +25,6 @@ const Filters = () => {
   const categories = getUniqueValues(all_products, 'category');
   const companies = getUniqueValues(all_products, 'company');
   const colors = getUniqueValues(all_products, 'colors');
-
   return (
     <Wrapper>
       <div className='content'>
@@ -45,7 +44,7 @@ const Filters = () => {
             {/* end of search input */}
             {/* categories */}
             <div className='form-control'>
-              <h5>category:</h5>
+              <h5>book category:</h5>
               <div>
                 {categories.map((c, index) => {
                   return (
@@ -69,7 +68,7 @@ const Filters = () => {
           <div>
             {/* companies */}
             <div className='form-control'>
-              <h5>Company: </h5>
+              <h5>Age Category: </h5>
               <select
                 name='company'
                 className='company'
@@ -88,7 +87,7 @@ const Filters = () => {
             {/* end of companies */}
 
             {/* colors */}
-            <div className='form-control'>
+            {/* <div className='form-control'>
               <h5>colors:</h5>
               <div className='colors'>
                 {colors.map((c, index) => {
@@ -124,7 +123,7 @@ const Filters = () => {
                   );
                 })}
               </div>
-            </div>
+            </div> */}
             {/* end of colors */}
             {/* price */}
             <div className='form-control'>

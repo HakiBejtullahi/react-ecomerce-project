@@ -4,6 +4,7 @@ import {
   COUNT_CART_TOTALS,
   REMOVE_CART_ITEM,
   TOGGLE_CART_ITEM_AMOUNT,
+  CHANGE_SHIPPING_FEE,
 } from '../actions';
 
 const cart_reducer = (state, action) => {
@@ -82,7 +83,16 @@ const cart_reducer = (state, action) => {
     );
     return { ...state, total_items, total_amount };
   }
+  if (action.type === CHANGE_SHIPPING_FEE) {
+    console.log('hello');
+    if (state.total_amount > 1900) {
+      state.shipping_fee = 0;
+    } else {
+      state.shipping_fee = 299;
+    }
 
+    return { ...state };
+  }
   throw new Error(`No Matching "${action.type}" - action type`);
 };
 

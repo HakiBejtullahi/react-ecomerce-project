@@ -17,7 +17,10 @@ const CartTotals = () => {
             subtotal : <span>{formatPrice(total_amount)}</span>
           </h5>
           <p>
-            shipping fee : <span>{formatPrice(shipping_fee)}</span>
+            shipping fee :{' '}
+            <span className={shipping_fee > 0 ? 'red' : 'green'}>
+              {formatPrice(shipping_fee)}
+            </span>
           </p>
           <hr />
           <h4>
@@ -50,6 +53,13 @@ const Wrapper = styled.section`
   margin-top: 3rem;
   display: flex;
   justify-content: center;
+
+  .green {
+    color: lightGreen;
+  }
+  .red {
+    color: red;
+  }
   article {
     border: 1px solid var(--clr-grey-8);
     border-radius: var(--radius);

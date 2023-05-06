@@ -8,18 +8,18 @@ Variables
   --font-familyPrim: 'Playfair Display', serif;
   --font-accent: 'Gochi Hand', cursive;
   /* dark shades of primary color*/
-  --clr-primary-1: #003366;
-  --clr-primary-2: #004080;
-  --clr-primary-3: #004d99;
-  --clr-primary-4: #0066cc;
+  --clr-primary-1: #792813;
+  --clr-primary-2: #a9381a;
+  --clr-primary-3: #c1401e;
+  --clr-primary-4: #d94821;
   /* primary/main color */
-  --clr-primary-5: #0080ff;
+  --clr-primary-5: #f15025;
   /* lighter shades of primary color */
-  --clr-primary-6: #3399ff;
-  --clr-primary-7: #4da6ff;
-  --clr-primary-8: #80c0ff;
-  --clr-primary-9: #99ccff;
-  --clr-primary-10: #cce6ff;
+  --clr-primary-6: #f2623b;
+  --clr-primary-7: #f47351;
+  --clr-primary-8: #f58566;
+  --clr-primary-9: #f8a892;
+  --clr-primary-10: #fcdcd3;
   /* darkest grey - used for headings */
   --clr-grey-1: hsl(209, 61%, 16%);
   --clr-grey-2: hsl(211, 39%, 23%);

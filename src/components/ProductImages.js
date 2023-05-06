@@ -36,7 +36,7 @@ const Wrapper = styled.section`
   .gallery {
     margin-top: 1rem;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     column-gap: 1rem;
     img {
       height: 100px;

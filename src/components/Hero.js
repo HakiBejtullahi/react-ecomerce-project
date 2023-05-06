@@ -9,7 +9,9 @@ const Hero = () => {
     <Wrapper className='section-center'>
       <article className='content'>
         <h1>
-          designe your <br /> comforn zone
+          Knowledge is power
+          <br />
+          Books give knowledge.
         </h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque qui
