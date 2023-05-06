@@ -24,12 +24,12 @@ const Wrapper = styled.section`
     gap: 2rem 1.5rem;
   }
 
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
     .products-container {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  @media (min-width: 1170px) {
+  @media (min-width: 893px) {
     .products-container {
       grid-template-columns: repeat(3, 1fr);
     }
