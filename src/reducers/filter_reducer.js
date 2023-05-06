@@ -57,6 +57,7 @@ const filter_reducer = (state, action) => {
   }
   if (action.type === UPDATE_FILTERS) {
     const { name, value } = action.payload;
+
     return { ...state, filters: { ...state.filters, [name]: value } };
   }
   if (action.type === FILTER_PRODUCTS) {
@@ -67,7 +68,7 @@ const filter_reducer = (state, action) => {
     // text
     if (text) {
       tempProducts = tempProducts.filter((product) =>
-        product.name.toLowerCase().startsWith(text)
+        product.name.toLowerCase().includes(text)
       );
     }
     // category
