@@ -17,18 +17,16 @@ const FeaturedProducts = () => {
   const [featuredIndexDisplay, setFeaturedIndexDisplay] = useState(0);
 
   const slideLeft = () => {
-    if (featuredIndexDisplay < 0) {
-      setFeaturedIndexDisplay(featured.length - 1);
-    } else {
-      setFeaturedIndexDisplay(featuredIndexDisplay - 1);
-    }
+    setFeaturedIndexDisplay((currentIndex) => {
+      const newIndex = (currentIndex - 1 + featured.length) % featured.length;
+      return newIndex;
+    });
   };
   const slideRight = () => {
-    if (featuredIndexDisplay >= featured.length - 1) {
-      setFeaturedIndexDisplay(0);
-    } else {
-      setFeaturedIndexDisplay(featuredIndexDisplay + 1);
-    }
+    setFeaturedIndexDisplay((currentIndex) => {
+      const newIndex = (currentIndex + 1) % featured.length;
+      return newIndex;
+    });
   };
 
   if (loading) {
@@ -46,11 +44,9 @@ const FeaturedProducts = () => {
       </div>
       <div className='section-center featured'>
         <div className='carousel'>
-          {featuredIndexDisplay !== 0 && (
-            <button className=' btn-left' onClick={slideLeft}>
-              <FaAngleDoubleLeft />
-            </button>
-          )}
+          <button className=' btn-left' onClick={slideLeft}>
+            <FaAngleDoubleLeft />
+          </button>
           {featured.map((product, index) => {
             if (window.innerWidth >= 900) {
               let nextItem = featuredIndexDisplay + 1;
@@ -65,11 +61,10 @@ const FeaturedProducts = () => {
             if (index !== featuredIndexDisplay) return null;
             return <Product key={product.id} {...product} />;
           })}
-          {featuredIndexDisplay !== featured.length - 1 && (
-            <button className='btn-right' onClick={slideRight}>
-              <FaAngleDoubleRight />
-            </button>
-          )}
+
+          <button className='btn-right' onClick={slideRight}>
+            <FaAngleDoubleRight />
+          </button>
         </div>
       </div>
       <Link to='/products' className='btn'>
@@ -114,7 +109,7 @@ const Wrapper = styled.section`
         font-size: 1.5rem;
         font-weight: bolder;
         border-radius: 50%;
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.05);
         color: var(--clr-primary-3);
         border-color: var(--clr-primary-3);
         display: flex;
@@ -126,19 +121,22 @@ const Wrapper = styled.section`
 
         &:hover {
           background-color: rgba(0, 0, 0, 0.6);
-          border-color: var(--clr-primary-9);
-          color: var(--clr-primary-9);
+          border-color: var(--clr-primary-5);
+          color: var(--clr-primary-5);
           @keyframes bounce {
             0% {
               scale: 1;
+              border-width: 3px;
             }
-            50% {
-              scale: 1.05;
-              border-width: 5px;
-              font-size: 2rem;
+            35%,
+            70% {
+              scale: 1.02;
+              border-width: 4px;
+              font-size: 1.8rem;
             }
             100% {
               scale: 1;
+              border-width: 3px;
             }
           }
 

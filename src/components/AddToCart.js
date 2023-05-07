@@ -15,7 +15,7 @@ const AddToCart = ({ product }) => {
   const increase = () => {
     setAmount((oldAmount) => {
       let tempAmount = oldAmount + 1;
-      if (tempAmount === stock) {
+      if (tempAmount >= stock) {
         tempAmount = stock;
       }
       return tempAmount;
