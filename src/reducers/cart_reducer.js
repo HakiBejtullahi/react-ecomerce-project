@@ -84,7 +84,6 @@ const cart_reducer = (state, action) => {
     return { ...state, total_items, total_amount };
   }
   if (action.type === CHANGE_SHIPPING_FEE) {
-    console.log('hello');
     if (state.total_amount > 1900) {
       state.shipping_fee = 0;
     } else {

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useReducer } from 'react';
+import React, { useEffect, useState, useContext, useReducer } from 'react';
 import reducer from '../reducers/filter_reducer';
 import {
   LOAD_PRODUCTS,
@@ -15,6 +15,7 @@ import { useProductsContext } from './products_context';
 const initialState = {
   filtered_products: [],
   all_products: [],
+  pageProducts: [],
   grid_view: true,
   sort: 'price-lowest',
   filters: {
@@ -66,7 +67,7 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: CLEAR_FILTERS });
   };
   const setGridView = () => {
-    dispatch({ type: SET_GRIDVIEW });
+    dispatch({ type: SET_GRIDVIEW, payload: products });
   };
 
   const setListView = () => {

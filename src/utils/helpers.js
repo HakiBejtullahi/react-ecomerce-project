@@ -13,3 +13,13 @@ export const getUniqueValues = (data, type) => {
 
   return ['all', ...new Set(unique)];
 };
+export const paginate = (data) => {
+  const itemsPerPage = 9;
+  const numberOfPage = Math.ceil(data.length / itemsPerPage);
+
+  const newData = Array.from({ length: numberOfPage }, (_, i) => {
+    const start = i * itemsPerPage;
+    return data.slice(start, start + itemsPerPage);
+  });
+  return newData;
+};

@@ -1,3 +1,4 @@
+import { paginate } from '../utils/helpers';
 import {
   LOAD_PRODUCTS,
   SET_LISTVIEW,
@@ -12,12 +13,16 @@ import {
 const filter_reducer = (state, action) => {
   if (action.type === LOAD_PRODUCTS) {
     let maxPrice = action.payload.map((product) => product.price);
-    maxPrice = Math.max(...maxPrice);
+    const paginatedProducts = (maxPrice = Math.max(...maxPrice));
+
+    const pageProducts = paginate(action.payload);
 
     return {
       ...state,
       all_products: [...action.payload],
       filtered_products: [...action.payload],
+      paginatedProducts: paginatedProducts,
+      pageProducts,
       filters: {
         ...state.filters,
         max_price: maxPrice,
@@ -26,7 +31,9 @@ const filter_reducer = (state, action) => {
     };
   }
   if (action.type === SET_GRIDVIEW) {
-    return { ...state, grid_view: true };
+    const paginatedProducts = paginate(action.payload);
+
+    return { ...state, grid_view: true, pageProducts: paginatedProducts };
   }
   if (action.type === SET_LISTVIEW) {
     return { ...state, grid_view: false };
@@ -37,6 +44,8 @@ const filter_reducer = (state, action) => {
   if (action.type === SORT_PRODUCTS) {
     const { sort, filtered_products } = state;
     let tempProducts = [...filtered_products];
+    let pageProducts;
+
     if (sort === 'price-lowest') {
       tempProducts = tempProducts.sort((a, b) => a.price - b.price);
     }
@@ -53,7 +62,12 @@ const filter_reducer = (state, action) => {
         return b.name.localeCompare(a.name);
       });
     }
-    return { ...state, filtered_products: tempProducts };
+    if (filtered_products.length > 9) {
+      pageProducts = paginate(tempProducts);
+    } else {
+      pageProducts = [tempProducts];
+    }
+    return { ...state, filtered_products: tempProducts, pageProducts };
   }
   if (action.type === UPDATE_FILTERS) {
     const { name, value } = action.payload;
@@ -64,6 +78,7 @@ const filter_reducer = (state, action) => {
     const { all_products } = state;
     const { text, category, company, color, price, shipping } = state.filters;
     let tempProducts = [...all_products];
+
     // filtering
     // text
     if (text) {
@@ -97,7 +112,8 @@ const filter_reducer = (state, action) => {
         (product) => product.shipping === true
       );
     }
-    return { ...state, filtered_products: tempProducts };
+    const pageProducts = paginate(tempProducts);
+    return { ...state, filtered_products: tempProducts, pageProducts };
   }
   if (action.type === CLEAR_FILTERS) {
     return {
