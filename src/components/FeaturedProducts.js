@@ -78,13 +78,13 @@ const Wrapper = styled.section`
   background: #fff3df;
   .featured {
     margin: 4rem auto;
-    display: flex;
+    display: grid;
     gap: 2.5rem;
     img {
-      height: 225px;
+      height: 600px;
     }
     .carousel {
-      height: 270px;
+      height: 640px;
       overflow: hidden;
       position: relative;
       padding: 0 2rem;
