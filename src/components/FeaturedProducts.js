@@ -78,7 +78,7 @@ const Wrapper = styled.section`
   background: #fff3df;
   .featured {
     margin: 4rem auto;
-    display: grid;
+    display: flex;
     gap: 2.5rem;
     img {
       height: 225px;
